@@ -1,7 +1,7 @@
 var express = require('express')
 var router = express.Router()
+var cors = require('cors');
+var corsConfig = require('config/cors.js')
+var controller = require('controllers/turnIn_controller')
 
-
-router.post('/quiz', function (req, res) {
-  req.body
-})
+router.post('/quiz', cors(corsConfig.post), controller.turnIn)
