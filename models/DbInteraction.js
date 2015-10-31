@@ -26,8 +26,9 @@ TurnIn.save = function (assignmentPojo, cb) {
 }
 
 TurnIn.grabAll = function (req, cb) {
-  console.log('mad it to the model at least')
-  var query = "SELECT * FROM links";
+  console.log('made it to the model at least');
+
+  var query = "SELECT * FROM links INNER JOIN students ON links.owner = students.slack_name WHERE students.ta = '" + req.body.username + "'";
   database.query(query, cb);
 }
 

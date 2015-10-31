@@ -12,6 +12,7 @@ var controller = {
     })
   },
   retrieveAll : function (req, res) {
+    console.log(req.body)
     DbInteraction.grabAll(req, function (err, rows) {
       if (err) {
         res.status(500).json({error: err})
