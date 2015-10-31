@@ -1,4 +1,4 @@
-var DbInteraction = require('models/DbInteraction.js');
+var DbInteraction = require('../models/DbInteraction.js');
 
 
 var controller = {
@@ -8,6 +8,15 @@ var controller = {
         res.status(500).json({error: err})
       } else {
         res.status(200).json({message: "It worked!"})
+      }
+    })
+  },
+  retrieveAll : function (req, res) {
+    DbInteraction.grabAll(req, function (err, rows) {
+      if (err) {
+        res.status(500).json({error: err})
+      } else {
+        res.status(200).json(rows);
       }
     })
   }

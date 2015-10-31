@@ -1,4 +1,4 @@
-var database = require('./database/database');
+var database = require('../database/database');
 
 
 var secondDashFinder = function (string) {
@@ -24,3 +24,11 @@ TurnIn.save = function (assignmentPojo, cb) {
   var query = "INSERT INTO links VALUES ('" + assignment.url + "', '" + assignment.owner + "', '" + assignment.quizname + "', '" + assignment.date + "', null)";
   database.query( query, cb);
 }
+
+TurnIn.grabAll = function (req, cb) {
+  console.log('mad it to the model at least')
+  var query = "SELECT * FROM links";
+  database.query(query, cb);
+}
+
+module.exports = TurnIn;

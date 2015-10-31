@@ -10,6 +10,8 @@ app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({extended: false}));
 app.use(express.static("public"));
 
+app.use(api)
+
 app.set('port', 3000)
 
 //actually connects to the mysql database, and if that is successful it starts listening
